@@ -1,4 +1,4 @@
-package utility
+package utilities
 
 type CompatibleArrayTypes interface {
 	string | interface{}

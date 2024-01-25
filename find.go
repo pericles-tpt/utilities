@@ -1,4 +1,4 @@
-package utility
+package utilities
 
 // IndexesOf return every index where `target` exists in `array`
 func IndexesOf[K comparable](target K, array []K) []int {
