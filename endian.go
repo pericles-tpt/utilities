@@ -24,11 +24,18 @@ func GetCorrectEndianTimestamp(leastSignificantBytes []byte) uint64 {
 	return binary.LittleEndian.Uint64(append(remainingBytes, leastSignificantBytes...))
 }
 
-func GetCorrectEndianInt32(bs []byte) int32 {
+func GetCorrectEndianUint32(bs []byte) uint32 {
 	if bigEndian {
-		return int32(binary.BigEndian.Uint32(bs))
+		return binary.BigEndian.Uint32(bs)
 	}
-	return int32(binary.LittleEndian.Uint32(bs))
+	return binary.LittleEndian.Uint32(bs)
+}
+
+func GetCorrectEndianUint64(bs []byte) uint64 {
+	if bigEndian {
+		return binary.BigEndian.Uint64(bs)
+	}
+	return binary.LittleEndian.Uint64(bs)
 }
 
 func GetCorrectEndianBytes(data interface{}) []byte {
