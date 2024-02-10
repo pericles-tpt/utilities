@@ -46,22 +46,24 @@ func GetCorrectEndianBytes(data interface{}) []byte {
 }
 
 func GetBigEndianBytes(data interface{}) []byte {
-	var ret []byte
+	ret := make([]byte, 4)
 	switch v := data.(type) {
 	case uint32:
 		binary.BigEndian.PutUint32(ret, v)
 	case uint64:
+		ret = make([]byte, 8)
 		binary.BigEndian.PutUint64(ret, v)
 	}
 	return ret
 }
 
 func GetLittleEndianBytes(data interface{}) []byte {
-	var ret []byte
+	ret := make([]byte, 4)
 	switch v := data.(type) {
 	case uint32:
 		binary.LittleEndian.PutUint32(ret, v)
 	case uint64:
+		ret = make([]byte, 8)
 		binary.LittleEndian.PutUint64(ret, v)
 	}
 	return ret
