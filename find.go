@@ -22,3 +22,14 @@ func IndexOf[K comparable](target K, array []K) int {
 	}
 	return -1
 }
+
+// ContainsAny, returns if ANY elements from arrA exist in arrB
+func ContainsAny[K comparable](arrA []K, arrB []K) bool {
+	for _, v := range arrA {
+		idx := IndexOf(v, arrB)
+		if idx > -1 {
+			return true
+		}
+	}
+	return false
+}
